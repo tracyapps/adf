@@ -1,0 +1,141 @@
+#masthead {
+	.site-logo-wrapper {
+		svg {
+
+			min-width: 80px;
+			max-height: 100%;
+			//margin-top: 49px;
+			margin-right: 5px;
+		}
+	}
+}
+
+.main-navigation {
+	a,
+	ul li {
+		transition: all 200ms ease-in-out;
+
+		a {
+			&:target,
+			&:focus {
+				color: #11592b;
+				background: rgba( $adf_blue, 0.23 );
+				border-bottom: 1px solid $adf_green;
+				border-top: 1px solid $adf_green;
+			}
+		}
+
+		&.current-menu-item,
+		&.current_page_item,
+		&.current-menu-ancestor,
+		&.current-page-ancestor {
+
+			color: #11592b;
+			background: rgba( $adf_blue, 0.2 );
+		}
+	}
+
+	.logged_in_member_area {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		border-radius: 6px;
+
+		@include buddyx-mobile {
+			display: none;
+		}
+
+		&:hover {
+			background: rgba( $adf_blue, 0.1 );
+
+			.desktop-user-profile-menu {
+				max-height: 100vh;
+				height: auto;
+			}
+		}
+
+		img.avatar {
+			border-radius: 50%;
+			margin: 0 auto;
+		}
+
+		a {
+			font-size: 80%;
+			display: block;
+			height: 100%;
+		}
+
+		#desktop-user-profile-menu {
+			position: absolute;
+			min-width:150px;
+			top: 99%;
+			right: -10px;
+			z-index: 999999;
+			background: rgba( 255, 255, 255, 0.95 );
+			box-shadow: 1px 1px 3px rgba( 0, 0, 0, 0.3 );
+			border-radius: 5px 0 5px 5px;
+		}
+	}
+
+	.desktop_member_login_link {
+		border-left: 1px solid $adf_blue;
+		margin-left: 5px;
+
+		@include buddyx-mobile {
+			display: none;
+		}
+
+		a {
+			line-height: 1;
+			font-size: 80%;
+			display: flex;
+			align-items: center;
+		}
+
+		.icon-ADF_Cosmos_Sigil {
+			height: 100px;
+			width: 70px;
+			margin: -10px -15px -10px 5px;
+		}
+	}
+
+	.desktop-user-profile-menu {
+		font-size: 1em;
+		padding: 0;
+		max-height: 0;
+		overflow: hidden;
+		transition: all 500ms ease-in-out;
+
+		a {
+			padding: 0.75em 1em;
+			border: 1px solid transparent;
+			border-bottom: 1px solid rgba( $adf_brown, 0.2 );
+			transition: all 250ms ease-in-out;
+
+			&:hover,
+			&:target,
+			&:focus {
+				background: rgba( $adf_blue, 0.1 );
+				border-top: 1px solid $adf_blue;
+				border-bottom: 1px solid $adf_blue;
+			}
+
+		}
+		li {
+			margin: 0;
+
+			&:first-of-type {
+				a {
+					padding-top: 13px;
+
+
+				}
+			}
+		}
+	}
+
+}
+
+

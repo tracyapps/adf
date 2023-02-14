@@ -1,0 +1,89 @@
+.screen_reader_text {
+	display: none;
+}
+.site-main a:not(.wp-block-button__link) {
+	border-bottom: 1px solid $adf_green;
+	padding-bottom: 0;
+	line-height: 1.7;
+	transition: all 200ms ease-in-out;
+
+
+
+	&:hover,
+	&:target,
+	&:focus {
+		text-decoration: none;
+		border-bottom: 2px solid $adf_brown;
+	}
+}
+
+img.left_aligned {
+	float: left;
+	max-width: 40%;
+	margin: 0 1em 0.5em 0;
+}
+
+.site-main .wp-social-link a {
+	line-height: initial;
+	border-bottom: none;
+	&:hover,
+	&:target,
+	&:focus {
+		border-bottom: none;
+	}
+}
+.wp-block-button a,
+.primary_button,
+a.primary_button {
+	background: $adf_brown;
+	color: #fff;
+	padding: 0.5em 1em;
+	border-radius: 2em;
+	display: inline-block;
+	transition: all 200ms ease-in-out;
+
+	&:hover,
+	&:target,
+	&:focus,
+	&:active {
+		background: $adf_green;
+		color: #fff;
+	}
+}
+
+.wp-block-button.green_button a {
+	background: $adf_green;
+	color: #fff;
+	transition: all 200ms ease-in-out;
+
+	&:hover,
+	&:target,
+	&:focus,
+	&:active {
+		background: $adf_brown;
+		color: #fff;
+	}
+}
+
+.adf-smalltext p {
+	font-size: small;
+	margin-bottom: 0;
+}
+
+.adf-withborder {
+	border-style: none none solid none;
+	margin: 5px;
+	padding: 5px;
+}
+
+.adf-withborder2 {
+	margin-top:0;
+	margin-bottom:10px;
+	padding: 5px;	
+}
+	
+h2.min-bottom-border {
+		color: red;
+		margin-bottom:2px;
+}
+

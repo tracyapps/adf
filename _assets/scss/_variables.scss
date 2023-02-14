@@ -1,0 +1,128 @@
+/**
+* ADF branding colors
+ */
+
+
+$adf_brown: 		#612411;
+$adf_light_brown: 	#815c4c;
+$adf_grey_green:	#66664d;
+$adf_green:		#11592b;
+$adf_dark_grey:	#373333;
+$adf_blue:		#6a8aa7;
+
+// Gutenberg color options
+// -- see editor-color-palette in functions.php
+$colors: (
+		'adf_brown' 		: #612411,
+		'adf_light_brown' 	: #815c4c,
+		'adf_grey_green' 	: #66664d,
+		'adf_green' 		: #11592b,
+		'adf_dark_grey' 	: #373333,
+		'adf_blue' 			: #6a8aa7,
+		'adf_white' 		: #fff,
+);
+
+@each $name, $color in $colors {
+
+	.has-#{$name}-color {
+		color: $color;
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+}
+
+
+
+
+
+/* Button block
+--------------------------------------------- */
+$buttoncolors: (
+		'adf_brown' 		: #612411,
+		'adf_dark_grey' 	: #373333,
+		'adf_blue' 			: #6a8aa7,
+
+);
+
+$buttoncolor_hover: (
+		'adf_brown' 		: #11592b,
+		'adf_dark_grey' 	: #612411,
+		'adf_blue' 			: #66664d,
+);
+.wp-block-button__link {
+	transition: all 250ms ease-in-out;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:not(.has-text-color) {
+		color: white;
+
+		&:hover {
+			color: white;
+		}
+	}
+
+	&:not(.has-background) {
+		$default: nth( nth( $buttoncolors, 1 ), 2 ); // first color in $colors array
+		background-color: $default;
+		transition: all 250ms ease-in-out;
+
+		&:hover,
+		&:focus {
+			background-color: $adf_green;
+		}
+	}
+
+	@each $name, $buttoncolor in $buttoncolors {
+
+		&.has-#{$name}-color:hover,
+		&.has-#{$name}-color:focus {
+			color: $buttoncolor;
+		}
+
+		&.has-#{$name}-background-color:hover,
+		&.has-#{$name}-background-color:focus {
+			background-color: map_get( $buttoncolor_hover, $name );
+		}
+	}
+}
+
+
+// ----------------  Breakpoints
+// (concept borrowed from http://tapps.us/breakpoint-article )
+
+// Define breakpoints
+$breakpoint-small: 600px;
+$breakpoint-buddyx-mobile: 767px;
+$breakpoint-medium: 900px;
+$breakpoint-large: 1200px;
+$breakpoint-x-large: 1800px;
+
+@mixin phone-only {
+	@media (max-width: $breakpoint-small) { @content; }
+}
+@mixin tablet-portrait-up {
+	@media (min-width: $breakpoint-small) { @content; }
+}
+@mixin tablet-portrait-down {
+	@media (max-width: $breakpoint-small) { @content; }
+}
+@mixin tablet-landscape-up {
+	@media (min-width: $breakpoint-medium) { @content; }
+}
+@mixin tablet-landscape-down {
+	@media (max-width: $breakpoint-medium) { @content; }
+}
+@mixin buddyx-mobile {
+	@media (max-width: $breakpoint-buddyx-mobile) { @content; }
+}
+@mixin desktop-up {
+	@media (min-width: $breakpoint-large) { @content; }
+}
+@mixin large-desktop-up {
+	@media (min-width: $breakpoint-x-large) { @content; }
+}

@@ -1,0 +1,92 @@
+#buddypress {
+	#item-header {
+		#item-header-content {
+			h2.user-displayname {
+				margin-bottom: 0;
+				line-height: 1.1;
+			}
+
+			h3.user-nicename {
+				margin: 0 0 10px 0;
+			}
+
+			.users_pronouns {
+				font-size: 1rem;
+				font-weight: normal;
+				font-style: italic;
+				opacity: 0.8;
+			}
+		}
+		ul.user_custom_roles_list {
+			display: flex;
+			width: 100%;
+			justify-content: flex-start;
+
+			li {
+				padding: 0.25em;
+				margin: 0.25em;
+				background: $adf_blue;
+				color: #fff;
+				font-size: 75%;
+				line-height: 1;
+			}
+		}
+	}
+
+	.activity-item-head {
+		padding: 2em;
+	}
+
+	.bp-tooltip {
+		border-bottom: 0;
+		&:after {
+			margin-top: 0;
+			top: 100%;
+
+		}
+	}
+
+	.screen-heading {
+		font-weight: normal;
+		background: rgba( $adf_brown, 0.1 );
+		padding: 0.5rem 1rem;
+
+		&.profile-group-title {
+			background: none;
+			color: inherit;
+			font-size: 1.1rem;
+		}
+	}
+	.compact-view {
+		#item-header-content {
+			display: flex;
+			align-items: center;
+		}
+		.member_basic_header_info_container {
+			flex: 1;
+		}
+		.member_group_leadership_list_container {
+			font-size: 90%;
+			background: rgba( $adf_blue, 0.1 );
+			padding: 1em 1.5em;
+			margin-top: 1em;
+
+			&:empty {
+				padding: 0;
+				margin: 0;
+				background: none;
+			}
+
+
+			.group_leader_list + .group_moderator_list {
+				padding-top: 1em;
+				border-top: 1px solid $adf_blue;
+				margin-top: 1em;
+			}
+
+		}
+	}
+	.profile.public .visibility-adminsonly {
+		display: none !important;
+	}
+}

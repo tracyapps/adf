@@ -1,0 +1,40 @@
+/******************************************************************
+
+Stylesheet: Main Stylesheet
+
+Here's where the magic happens. Here is where you import
+all of your Sass files so they can compile into one
+CSS file. 
+
+******************************************************************/
+div {
+  border: 5px solid #f00 !important;
+}
+
+aside#secondary {
+  background-color: #00f !important;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.adf-smalltext p {
+  font-size: small;
+  margin-bottom: 0px;
+}
+
+.adf-withborder {
+  border-style: none none solid none;
+  margin: 5px;
+  padding: 5px;
+}
+
+.adf-withborder2 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+h2.min-bottom-border {
+  color: red;
+  margin-bottom: 2px;
+}

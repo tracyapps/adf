@@ -1,0 +1,99 @@
+div.post-layout.square-grid.all-groves {
+
+	grid-template-columns: repeat( auto-fill, minmax( 450px, 1fr ) );
+
+}
+
+.all-groves {
+	.single-grove {
+		border: 1px solid $adf_blue;
+		border-radius: 5px;
+
+		h4 {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+			align-items: baseline;
+			background: rgba( $adf_brown, 0.1 );
+			padding: 1rem;
+
+			span.grove_id {
+				font-size: 50%;
+			}
+		}
+
+		h5 {
+			margin: 1em 0 0.25em 0;
+		}
+
+		.flex_row {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			padding: 0 1rem;
+			border-bottom: 1px solid rgba( $adf_blue, 0.2 );
+
+			h5 {
+				margin-top: 0;
+			}
+		}
+
+		section {
+			svg {
+				width: 20px;
+				height: 20px;
+				margin: 0 2px 0 0;
+			}
+
+			&.grove_links {
+				background: rgba( $adf_blue, 0.1 );
+				padding: 0 1em 1em 1em;
+			}
+
+			&.grove_important_dates {
+				font-size: 80%;
+			}
+
+			&.grove_contact_information {
+				padding: 1rem;
+				border-top: 1px solid rgba( $adf_brown, 0.1 );
+			}
+
+			.main_grove_description {
+				font-size: 120%;
+				padding: 0 2rem;
+				margin-bottom: 5px;
+			}
+
+		}
+	}
+}
+
+.grove_info_grid {
+	display: grid;
+	grid-template-columns: 33% 17% 17% 34%;
+	//grid-template-rows: repeat( 1fr );
+	grid-template-areas:
+		"title title title title"
+		"description description description description"
+		"address address address dates"
+		"contact contact contact contact"
+		"links links links links";
+
+
+	h4.grove_title {
+		grid-area: title;
+	}
+	section.grove_important_dates {
+		grid-area: dates;
+	}
+	section.grove_location_information {
+		grid-area: address;
+	}
+	section.grove_links {
+		grid-area: links;
+	}
+	section.grove_contact_information {
+		grid-area: contact;
+	}
+}

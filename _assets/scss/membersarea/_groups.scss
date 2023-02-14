@@ -1,0 +1,655 @@
+#groups-dir-list,
+.groups {
+	#groups-list {
+		.is-member.hidden {
+			display: inline-block !important;
+		}
+	}
+}
+
+.site-main .item-avatar {
+	a {
+		border-bottom: none;
+
+		&:hover {
+			border-bottom: none;
+		}
+	}
+}
+
+// forum page header, link back to group page
+
+.back_to_subgroup_page {
+	width: 95%;
+	max-width: 1400px;
+	margin: -1em auto 0 auto;
+	padding: 0 0 20px 20px;
+}
+
+// styling subgroup custom pages (CPT: 'subgroup')
+
+main.subgroup_detail_page {
+	display: grid;
+	grid-template-columns: 30% 20% 1fr 27%;
+	grid-gap: 5px;
+	grid-template-rows: auto auto auto auto auto 1fr;
+	grid-template-areas:
+	"main main main imagearea"
+	"main main main join"
+	"main main main resources"
+	"main main main officers";
+
+	@include phone-only {
+		display: grid;
+		grid-template-columns: 30% 20% 1fr 27%;
+		grid-gap: 5px;
+		grid-template-rows: auto auto auto auto auto 1fr;
+		grid-template-areas:
+		"summary summary summary imagearea"
+		"join join join join"
+		"main main main main"
+		"resources resources officers officers";
+	}
+
+	section,
+	aside {
+		padding: 1rem;
+		border-radius: 10px;
+
+		&.mobile_only_subgroup_summary {
+			grid-area: summary;
+		}
+		&.subgroup_info,
+		&.subgroup_member_only_content {
+			grid-area: main;
+		}
+		&.subgroup_featured_image_container {
+			grid-area: imagearea;
+
+			&:empty {
+				height: 0;
+			}
+		}
+		&.subgroup_membership_info {
+			grid-area: join;
+		}
+		&.subgroup_important_links {
+			grid-area: resources;
+		}
+		&.subgroup_officers {
+			grid-area: officers;
+		}
+	}
+
+	section.mobile_only_subgroup_summary {
+		display: none;
+
+		@include phone-only {
+			display: block;
+			background: rgba( $adf_blue, 0.2 );
+			box-shadow: 0 1px 1px rgba( 0,0,0,0.5 );
+		}
+	}
+
+	h3.page_section_title {
+		clear: none;
+	}
+}
+
+.subgroup_summary {
+	background: rgba( $adf_blue, 0.2 );
+	box-shadow: 0 1px 1px rgba( 0,0,0,0.5 );
+	padding: 0.75rem 1rem;
+	margin-bottom: 1rem;
+
+	@include phone-only {
+		display: none;
+	}
+}
+.subgroup_featured_image_container {
+	img.subgroup_featured_image {
+		max-width: 100%;
+		box-shadow: 1px 1px 3px rgba( 0,0,0,0.5 );
+		border: 1px solid #fff;
+	}
+}
+
+.subgroup_membership_info {
+	background: rgba( $adf_green, 0.15 );
+	background: linear-gradient(to bottom, transparent 0%, rgba( $adf_green, 0.15 ) 75%);
+	box-shadow: 0 1px 1px rgba( 0,0,0,0.5 );
+}
+
+.subgroup_important_links:not(:empty) {
+	background: rgba( $adf_blue, 0.1 );
+	background: linear-gradient(to bottom, transparent 0%, rgba( $adf_blue, 0.1 ) 75%);
+	box-shadow: 0 1px 1px rgba( 0,0,0,0.5 );
+}
+
+.subgroup_officers:not(:empty) {
+	background: rgba( $adf_brown, 0.1 );
+	background: linear-gradient(to bottom, transparent 0%, rgba( $adf_brown, 0.1 ) 75%);
+	box-shadow: 0 1px 1px rgba( 0,0,0,0.5 );
+
+	h4.officer_title {
+		margin-bottom: 0;
+		padding-top: 5px;
+		line-height: 1.1;
+		font-weight: normal;
+	}
+
+	a {
+		display: block;
+		margin-top: 3px;
+		margin-bottom: calc( 1rem + 1px );
+		padding-bottom: 0;
+		border-top: 1px solid rgba( $adf_green, 0.1 );
+
+		&:hover,
+		&:focus,
+		&:target {
+			margin-bottom: 1rem;
+			border-top: 1px solid rgba( $adf_brown, 0.1 );
+		}
+	}
+}
+
+/**
+* styling subgroup child pgae items
+ */
+
+span.subgroup_subpage_title {
+	display: inline-block;
+	font-size: 80%;
+	font-weight: normal;
+}
+
+h3.subgroup_child_pages_heading {
+	margin: 0;
+	padding: 1em 0 0.5em 0;
+	font-weight: normal;
+	font-size: 1rem;
+}
+
+ul.subgroup_child_pages_list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 1.4em;
+	background: rgba( $adf_blue, 0.085 );
+	border-top: 2px solid $adf_brown;
+	border-bottom: 2px solid $adf_brown;
+
+	li {
+		margin: 0;
+		padding: 0;
+		font-size: 80%;
+		border-left: 1px solid $adf_blue;
+
+	}
+	a {
+		display: block;
+		padding: 0.75rem 1rem;
+		line-height: 1.1;
+		border: none;
+		transition: all 200ms ease-in-out;
+
+		&:hover,
+		&:target,
+		&:focus {
+			background: rgba( $adf_blue, 0.2 );
+			text-decoration: none;
+			border: none;
+		}
+	}
+
+	.current_page_item {
+
+		> a {
+			background: $adf_brown;
+			color: #fff;
+		}
+
+	}
+}
+
+.external_icon {
+	font-size: 1.2em;
+	padding: 0 4px;
+	display: inline-block;
+}
+
+.group-home {
+	section {
+		padding: 1rem;
+		border-radius: 10px;
+	}
+
+	div.column_container {
+		display: flex;
+
+		.subgroup_info {
+			flex: 1;
+		}
+
+		.subgroup_important_links {
+			max-width: 26%;
+		}
+	}
+}
+
+#buddypress .buddyx-nav-iconic {
+	.group-subnav,
+	.groups-nav,
+	.user-subnav,
+	.users-nav {
+		li#nav-group-officers-groups-li {
+			> a {
+				&:before {
+					content: "\f2b9";
+				}
+			}
+		}
+	}
+}
+
+// subgroup listing/archive page styles
+
+div.post-layout.square-grid {
+	display: grid;
+	grid-template-columns: repeat( auto-fill, 300px );
+	grid-template-rows: repeat( auto-fill, 1fr );
+	grid-gap: 20px;
+
+	.single-subgroup {
+		background: #fff;
+		border-radius: 15px;
+		box-shadow: 1px 1px 8px rgba( 0, 0, 0, 0.2 );
+		text-align: center;
+		padding: 20px 20px 3px 20px;
+		position: relative;
+		height: 100%;
+
+		img {
+			margin: 0 auto;
+			box-shadow: 1px 1px 2px rgba( 0, 0, 0, 0.4 );
+			border: 1px solid $adf_green;
+		}
+
+		div.subgroup_type_badge {
+			position: absolute;
+			top: 8px;
+			right: 0;
+			background: rgba( $adf_green, 0.8 );
+			padding: 5px 9px;
+			display: inline-block;
+			text-align: right;
+			line-height: 1;
+			color: #fff;
+
+			a {
+				color: #fff;
+				padding: 3px 5px 1px 5px;
+			}
+			span {
+				display: inline-block;
+
+			}
+		}
+
+		h2.entry-title {
+			line-height: 1;
+			margin-bottom: 0;
+
+			a:not(.wp-block-button__link) {
+				padding-top: 1rem;
+				display: block;
+				line-height: 1.1;
+				border-bottom: none;
+			}
+		}
+	}
+}
+.site-main {
+	a.object_container {
+		border-bottom: none;
+		border-radius: 15px;
+		margin-bottom: 20px;
+
+		&:hover {
+			border-bottom: none;
+			box-shadow: 1px 1px 8px rgba( 0, 0, 0, 0.2 );
+
+			.single-subgroup {
+				border: 1px solid rgba( $adf_green, 0.8 );
+			}
+		}
+
+		.single-subgroup {
+			border: 1px solid rgba( $adf_blue, 0.4 );
+		}
+	}
+}
+
+
+// buddypress group styles
+#buddypress {
+	&.buddypress-wrap {
+
+		//make the leave group" buttons more 'warning' like.
+		ul#groups-list {
+			> li {
+				.group-button.leave-group {
+					background: #fff;
+					color: #990000;
+					opacity: 0.5;
+
+					&:hover {
+						background: #b80000;
+						color: #fff;
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		.groups-meta {
+			button.leave-group.button {
+				background: #fff;
+				color: #990000;
+				opacity: 0.5;
+
+				&:hover {
+					background: #b80000;
+					color: #fff;
+					opacity: 1;
+				}
+			}
+		}
+
+		// general tabs (buddypress pages, main nav is the vertical menu, subnav is the tabs along the top of each section
+		#subnav.tabbed-links {
+			background: rgba( $adf_blue, 0.2 );
+			display: block;
+
+			ul {
+				display: flex;
+				padding: 1rem 3px 0 3px;
+				width: 100%;
+				flex-wrap: wrap;
+
+				&:empty {
+					padding: 0;
+					height: 0;
+					margin: 0;
+				}
+
+				li {
+					padding: 0;
+					flex: none;
+					margin: 0 0 -1px 0;
+
+					a {
+						background: rgba(255, 255, 255, 0.4);
+						padding: 1rem 1rem 0.75rem 1rem;
+						margin: 0 2px;
+						border-radius: 3px 3px 0 0;
+						box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.3);
+						border-bottom: none;
+						display: inline-block;
+						line-height: 1.1;
+						transition: all 200ms ease-in-out;
+						border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+						&:hover,
+						&:target,
+						&:focus {
+							background: rgba(255, 255, 255, 1);
+						}
+					}
+
+					&.current {
+						a {
+							background: rgba(255, 255, 255, 1);
+							box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.4);
+							border-bottom: none;
+							color: $adf_dark_grey;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	// styling the /docs/ page tabs like the other ones in buddypress
+	.bp-docs {
+		.item-list-tabs {
+			background: rgba( $adf_blue, 0.2 );
+			display: block;
+
+			ul.component-navigation {
+				display: flex;
+				padding: 1rem 1em 0 1rem;
+				width: 100%;
+				flex-wrap: wrap;
+
+				li {
+					padding: 0;
+					flex: none;
+					margin: 0 0 -1px 0;
+
+					a {
+						background: rgba( 255,255,255, 0.4 );
+						padding: 1rem 1rem 0.75rem 1rem;
+						margin: 0 2px;
+						border-radius: 3px 3px 0 0;
+						box-shadow: 0 -1px 2px rgba(0,0,0,0.3);
+						border-bottom: none;
+						display: inline-block;
+						line-height: 1.1;
+						transition: all 200ms ease-in-out;
+						border-bottom: 1px solid rgba( 0,0,0,0.1);
+
+						&:hover,
+						&:target,
+						&:focus {
+							background: rgba( 255,255,255, 1 );
+						}
+					}
+
+					&.current {
+						a {
+							background: rgba( 255,255,255, 1 );
+							box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
+							border-bottom: none;
+							color: $adf_dark_grey;
+						}
+					}
+				}
+
+				// make the "add doc" button right aligned
+				a.button {
+					margin: 0;
+					justify-self: end;
+					margin-left: auto;
+				}
+
+				&:after {
+					display: none;
+				}
+			}
+
+		}
+	}
+
+	// group and member home page tabs, just like the previous two
+	.group-home,
+	.member-home {
+		.item-body:not(#group-create-body) {
+			#subnav{
+				background: rgba( $adf_blue, 0.2 );
+				display: block;
+
+				ul {
+					display: flex;
+					padding: 1rem 3px 0 3px;
+					width: 100%;
+					flex-wrap: wrap;
+
+
+					&:empty {
+						padding: 0;
+						height: 0;
+						margin: 0;
+					}
+
+
+					li {
+						padding: 0;
+						flex: none;
+						margin: 0 0 -1px 0;
+
+						a {
+							background: rgba( 255,255,255, 0.4 );
+							padding: 1rem 1rem 0.75rem 1rem;
+							margin: 0 2px;
+							border-radius: 3px 3px 0 0;
+							box-shadow: 0 -1px 2px rgba(0,0,0,0.3);
+							border-bottom: none;
+							display: inline-block;
+							line-height: 1.1;
+							transition: all 200ms ease-in-out;
+							border-bottom: 1px solid rgba( 0,0,0,0.1);
+
+							&:hover,
+							&:target,
+							&:focus {
+								background: rgba( 255,255,255, 1 );
+							}
+						}
+
+						&.current {
+							a {
+								background: rgba( 255,255,255, 1 );
+								box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
+								border-bottom: none;
+							}
+						}
+
+						// making the "delete" button styled differently and right aligned
+						&#delete-account-personal-li,
+						&#delete-group-groups-li {
+							margin-left: auto;
+
+							a#delete-account,
+							a#delete-group {
+								&:hover {
+									background: #b80000;
+									color: #fff;
+								}
+							}
+						}
+					}
+
+					a.button {
+						margin: 0;
+						justify-self: end;
+						margin-left: auto;
+					}
+
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// styling the profile and extra data 'table' view to match the site
+		.profile-fields {
+			tr {
+				border-top: 1px solid $adf_blue;
+			}
+			td.label {
+				background: $adf_blue;
+				display: block;
+				width: 100%;
+				color: #fff;
+				padding: 0.7em 1em;
+			}
+			td.data {
+				border-bottom: 1px solid $adf_blue;
+				border-top: 1px solid $adf_blue;
+			}
+		}
+
+		.extra-data {
+			h4 {
+				background: $adf_blue;
+				color: #fff;
+				display: block;
+				margin: 1.5em 0 0.5em 0;
+				padding: 0.25em;
+
+				&:first-of-type {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+
+	.groups-header {
+		.group-item-actions {
+			.moderators-lists {
+				ul#group-admins {
+					li.administrator {
+						display: none;
+
+						&.group_leader {
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	.chat & {
+		#item-body {
+			display: flex;
+
+			#chat-chat-box {
+				flex: 1;
+			}
+
+			#chat-users-online-container {
+				width: 15%;
+				float: none;
+			}
+
+			#bp-chat-chat-container {
+				height: auto;
+				min-height: 400px;
+			}
+
+			.chat-bubble {
+				border-radius: 1em;
+				padding: 1.1em;
+				box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+
+				img,
+				.fluid-width-video-wrapper {
+					max-width: 90%;
+				}
+
+				div.chat-name {
+					text-align: left;
+					font-size: 1.2rem;
+					padding-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+

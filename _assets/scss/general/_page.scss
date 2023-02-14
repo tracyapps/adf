@@ -1,0 +1,273 @@
+// the "favorite" button
+
+.home {
+	button.simplefavorite-button {
+		display: none;
+	}
+}
+
+button.simplefavorite-button {
+	transition: all 250ms ease-in-out;
+	margin: 2em 0;
+	border: 1px solid rgba( $adf_blue, 0.2 );
+	display: block;
+
+	&:hover,
+	&:focus,
+	&:target {
+		background: $adf_blue;
+		color: white;
+	}
+
+	&.preset {
+		display: block;
+
+		div.entry-content + & {
+			margin-top: 0;
+		}
+	}
+}
+
+button.simplefavorites-clear {
+	transition: all 250ms ease-in-out;
+
+	&:hover,
+	&:focus,
+	&:target {
+		background: #aa0000;
+		color: white;
+		border: 1px solid $adf_brown;
+	}
+}
+
+
+
+// oak leaves specific styles
+
+ul.oak_leaves_archives_list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		border: 1px solid rgba(0,0,0,0.1);
+		box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+		border-radius: 5px;
+		display: flex;
+		width: 100%;
+
+		h3 {
+			margin: 0;
+			display: inline-block;
+		}
+
+		.meta_info {
+			font-size: 80%;
+			opacity: 0.7;
+			display: inline-block;
+			padding: 0 2em;
+		}
+
+		.edition_view_link {
+			flex: 1;
+			padding: 1em;
+			transition: all 200ms ease-in-out;
+
+			&:hover,
+			&:target,
+			&:focus {
+				background: rgba( $adf_blue, 0.2 );
+			}
+		}
+		.edition_download_link {
+			border-left: 1px solid #ccc;
+			padding: 1em;
+			transition: all 200ms ease-in-out;
+
+			a {
+				display: block;
+			}
+
+			&:hover,
+			&:target,
+			&:focus {
+				background: rgba( $adf_blue, 0.2 );
+				cursor: hand;
+			}
+		}
+	}
+}
+
+.oak_leaves_toc_container {
+	background: rgba( $adf_blue, 1 );
+	padding: 0.5rem 1px 1px 1px;
+	border-radius: 6px;
+
+	h6 {
+		margin: 0;
+		line-height: 1.1;
+		border-bottom: 1px solid rgba(0,0,0,0.2);
+		padding: 0.25rem 1rem;
+		color: #fff;
+	}
+
+	.toc_intro {
+		font-size: 80%;
+		padding: 0.25rem 1rem;
+		border-bottom: 1px solid rgba(0,0,0,0.2);
+		background: rgba( 255, 255, 255, 0.9 );
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid rgba( 255, 255, 255, 0.5 );
+
+		li {
+			border-bottom: 1px solid rgba(0,0,0,0.5);
+			border-top: 1px solid rgba( 255, 255, 255, 0.9 );
+			background: rgba( 255, 255, 255, 0.7 );
+			padding: 0.35rem 1rem;
+
+			&:nth-of-type(2n) {
+				background: rgba( 255, 255, 255, 0.78 );
+			}
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+		}
+	}
+}
+
+main#primary.full-width {
+	width: 100%;
+	grid-column: span 2;
+}
+
+.interactive-region-map {
+	margin-bottom: 4em;
+}
+
+.post-layout {
+	&.simple-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 20px;
+
+	}
+
+	.post-thumbnail {
+		img {
+			max-width: 100%;
+		}
+	}
+	&.region-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 20px;
+
+		.single-region {
+			min-height: 3rem;
+			border: 1px solid #333;
+			padding: 0;
+			position: relative;
+			transition: all 250ms ease-in-out;
+
+			&:hover {
+				border: 1px solid $adf_brown;
+				box-shadow: 0 0 12px rgba( 0,0,0,0.4);
+			}
+
+			a {
+				&:target,
+				&:focus {
+					background: $adf_brown;
+					color: #fff;
+
+					img {
+						border: 2px solid $adf_brown;
+					}
+				}
+			}
+
+			.entry-title {
+				margin: 0;
+				padding: 10px;
+				line-height: 1.1;
+
+				a {
+					display: block;
+					text-align: center;
+					border-bottom: none;
+
+					&:hover {
+						border-bottom: none;
+					}
+				}
+			}
+
+		}
+
+		@media screen and (max-width: 620px) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (max-width: 400px) {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+h2.region_leader_title {
+	font-size: 1.2rem;
+	margin: 1rem 0 0 0;
+	padding: 0.25rem;
+	line-height: 1.2;
+}
+
+a.region_leader_name {
+	font-size: 1.2rem;
+	line-height: 1.3;
+	display: flex;
+	align-items: center;
+	padding: 0.25rem;
+	transition: all 250ms ease-in-out;
+
+	&:hover {
+		background-color: rgba( $adf_blue, 0.1 );
+		border-radius: 6px;
+	}
+
+	img.avatar {
+		border-radius: 50%;
+		width: 40px;
+		height: 40px;
+		margin-right: 0.7rem;
+	}
+}
+
+a.email_button {
+	padding: 0.75em 0;
+	margin-bottom: 1.75rem;
+	transition: all 250ms ease-in-out;
+	display: block;
+
+	&:hover {
+		background-color: rgba( $adf_blue, 0.1 );
+		border-radius: 6px;
+	}
+}
+
+.region_info {
+	border: 1px solid $adf_blue;
+	background: rgba( $adf_blue, 0.1 );
+	padding: 1rem 1rem 0 1rem;
+
+	.region_info_title {
+		font-size: 1.1rem;
+		margin: 0;
+		line-height: 1.1;
+	}
+}

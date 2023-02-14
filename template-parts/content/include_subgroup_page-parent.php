@@ -34,7 +34,7 @@ if( $group_forum_object ) {
 if( $groupmembers_status === 'not_a_member' ) {
 
 	if ( $subgroup_membership_permissions === 'open' ) :
-		$join_url = FrmFormsController::get_form_shortcode( array( 'id' => 13, 'title' => false, 'description' => false ) );;
+		$join_url = FrmFormsController::get_form_shortcode( array( 'id' => 13, 'title' => false, 'description' => false ) );
 		$membership_requirement = '<h4>Open to all ADF Members</h4>' . get_field( 'membership_requirement', $subgroup_id );
 	elseif ( $subgroup_membership_permissions === 'restricted'  ) :
 		$request_link = get_field( 'request_to_join_link' );

@@ -786,15 +786,15 @@ main.subgroup_detail_page {
   display: grid;
   grid-template-columns: 30% 20% 1fr 27%;
   grid-gap: 5px;
-  grid-template-rows: auto auto auto auto auto 1fr;
-  grid-template-areas: "main main main imagearea" "main main main join" "main main main resources" "main main main officers";
+  grid-template-rows: auto auto auto auto 1fr;
+  grid-template-areas: "main main main imagearea" "main main main join" "main main main resources" "main main main officers" "main main main null";
 }
 @media (max-width: 600px) {
   main.subgroup_detail_page {
     display: grid;
     grid-template-columns: 30% 20% 1fr 27%;
     grid-gap: 5px;
-    grid-template-rows: auto auto auto auto auto 1fr;
+    grid-template-rows: auto auto auto auto 1fr;
     grid-template-areas: "summary summary summary imagearea" "join join join join" "main main main main" "resources resources officers officers";
   }
 }
@@ -802,6 +802,10 @@ main.subgroup_detail_page section,
 main.subgroup_detail_page aside {
   padding: 1rem;
   border-radius: 10px;
+}
+main.subgroup_detail_page section:empty,
+main.subgroup_detail_page aside:empty {
+  padding: 0;
 }
 main.subgroup_detail_page section.mobile_only_subgroup_summary,
 main.subgroup_detail_page aside.mobile_only_subgroup_summary {
@@ -815,10 +819,6 @@ main.subgroup_detail_page aside.subgroup_member_only_content {
 main.subgroup_detail_page section.subgroup_featured_image_container,
 main.subgroup_detail_page aside.subgroup_featured_image_container {
   grid-area: imagearea;
-}
-main.subgroup_detail_page section.subgroup_featured_image_container:empty,
-main.subgroup_detail_page aside.subgroup_featured_image_container:empty {
-  height: 0;
 }
 main.subgroup_detail_page section.subgroup_membership_info,
 main.subgroup_detail_page aside.subgroup_membership_info {

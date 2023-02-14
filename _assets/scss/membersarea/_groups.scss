@@ -32,18 +32,19 @@ main.subgroup_detail_page {
 	display: grid;
 	grid-template-columns: 30% 20% 1fr 27%;
 	grid-gap: 5px;
-	grid-template-rows: auto auto auto auto auto 1fr;
+	grid-template-rows: auto auto auto auto 1fr;
 	grid-template-areas:
 	"main main main imagearea"
 	"main main main join"
 	"main main main resources"
-	"main main main officers";
+	"main main main officers"
+	"main main main null";
 
 	@include phone-only {
 		display: grid;
 		grid-template-columns: 30% 20% 1fr 27%;
 		grid-gap: 5px;
-		grid-template-rows: auto auto auto auto auto 1fr;
+		grid-template-rows: auto auto auto auto 1fr;
 		grid-template-areas:
 		"summary summary summary imagearea"
 		"join join join join"
@@ -56,6 +57,10 @@ main.subgroup_detail_page {
 		padding: 1rem;
 		border-radius: 10px;
 
+		&:empty {
+			padding: 0;
+		}
+
 		&.mobile_only_subgroup_summary {
 			grid-area: summary;
 		}
@@ -65,10 +70,6 @@ main.subgroup_detail_page {
 		}
 		&.subgroup_featured_image_container {
 			grid-area: imagearea;
-
-			&:empty {
-				height: 0;
-			}
 		}
 		&.subgroup_membership_info {
 			grid-area: join;

@@ -195,57 +195,60 @@ function adf_buddyxprochild_custom_post_types() {
 
 
 	/**
-	 * CPT: grove
-
-	register_post_type( 'grove',
+	 * CPT: essay
+*/
+	register_post_type( 'essay',
 		array(
 			'labels' => array(
-				'name' => __( 'Groves', 'buddyxprochild' ),
-				'singular_name' => __( 'Groves', 'buddyxprochild' ),
-				'all_items' => __( 'All Groves', 'buddyxprochild' ),
-				'add_new' => __( 'Add New Grove', 'buddyxprochild' ),
+				'name' => __( 'Essays', 'buddyxprochild' ),
+				'singular_name' => __( 'Essay', 'buddyxprochild' ),
+				'all_items' => __( 'All Essays', 'buddyxprochild' ),
+				'add_new' => __( 'Add New Essay', 'buddyxprochild' ),
 				'add_new_item' => __( 'Add New', 'buddyxprochild' ),
-				'edit' => __( 'Edit Grove', 'buddyxprochild' ),
-				'edit_item' => __( 'Edit Grove', 'buddyxprochild' ),
-				'new_item' => __( 'New Grove', 'buddyxprochild' ),
-				'view_item' => __( 'View Grove', 'buddyxprochild' ),
-				'search_items' => __( 'Search Groves', 'buddyxprochild' ),
+				'edit' => __( 'Edit Essay', 'buddyxprochild' ),
+				'edit_item' => __( 'Edit Essay', 'buddyxprochild' ),
+				'new_item' => __( 'New Essay', 'buddyxprochild' ),
+				'view_item' => __( 'View Essay', 'buddyxprochild' ),
+				'search_items' => __( 'Search Essays', 'buddyxprochild' ),
 				'not_found' => __( 'Nothing found.', 'buddyxprochild' ),
 				'not_found_in_trash' => __( 'Nothing found in Trash', 'buddyxprochild' ),
 				'parent_item_colon' => ''
 			),
-			'description' => __( 'Groves', 'buddyxprochild' ),
+			'description' => __( 'Essay', 'buddyxprochild' ),
 			'public' => true,
 			'hierarchical' => false,
-			'exclude_from_search' => false,
+			'exclude_from_search' => true,
 			'publicly_queryable' => true,
 			'show_ui' => true,
 			'show_in_menu' => true,
 			'show_in_nav_menus' => true,
 			'show_in_admin_bar' => true,
-			'show_in_rest' => true,
-			'menu_position' => 6,
-			'menu_icon' => 'dashicons-networking',
+			'show_in_rest' => false,
+			'menu_position' => 26,
+			'menu_icon' => 'dashicons-edit-page',
 			'query_var' => true,
 			'rewrite' => array(
-				'slug' => 'grove',
-				'with_front' => false
+				'slug' => 'essay-submission',
+				'with_front' => true
 			),
-			'has_archive' => 'groves',
-			'capability_type' => 'post',
+			'has_archive' => 'essays',
+			'capability_type' => 'page',
 			'supports' => array(
 				'title',
+				'editor',
+				'author',
 				'custom-fields',
-				'revisions'
+				'revisions',
+				'comments',
 			)
 		)
-	); /* end of register CPT: grove */
+	); /* end of register CPT: essay */
 
 
 
 	/**
 	 * CPT: members area
-	 */
+
 	register_post_type( 'members-area',
 		array(
 			'labels' => array(
@@ -263,7 +266,7 @@ function adf_buddyxprochild_custom_post_types() {
 				'not_found_in_trash' => __( 'Nothing found in Trash', 'buddyxprochild' ),
 				'parent_item_colon' => ''
 			),
-			/* end of labels */
+			// end of labels
 			'description' => __( 'Pages visible only to members', 'buddyxprochild' ),
 			'public' => true,
 			'hierarchical' => true,
@@ -293,7 +296,7 @@ function adf_buddyxprochild_custom_post_types() {
 				'revisions',
 				'page-attributes'
 			)
-		) /* end of options */
+		)  // end of options
 	); /* end of register CPT: members area */
 
 
@@ -445,7 +448,7 @@ function adf_buddyxprochild_custom_taxonomies() {
 		'rewrite'           => array( 'slug' => 'hearth' ),
 	);
  
-	register_taxonomy( 'hearth', array( 'page', 'article', 'ritual', 'oak-leaves', 'members-area' ), $args );
+	register_taxonomy( 'hearth', array( 'page', 'article', 'ritual', 'oak-leaves', 'subgroup', 'members-area', 'essay' ), $args );
  
 	unset( $args );
 	unset( $labels );
